@@ -1,0 +1,8 @@
+Model,Test macro-F1
+GRU,0.9732094803356789
+FastText supervised,0.9705200677677741
+MLP (n=1 hidden layer),0.9702357224481117
+MLP (n=2 hidden layers),0.9672612522836738
+LSTM,0.9613087526988874
+MLP (n=0 hidden layers),0.9226190476190476
+Logistic Regression (avg. FastText vec.),0.9226128783650908
