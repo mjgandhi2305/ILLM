@@ -1,0 +1,60 @@
+save_data: work/fasttext/onmt_run/example
+src_vocab: work/fasttext/vocab.src
+tgt_vocab: work/fasttext/vocab.tgt
+src_vocab_size: 200000
+tgt_vocab_size: 200000
+vocab_size_multiple: 1
+overwrite: true
+data:
+  corpus_1:
+    path_src: work/fasttext/train.src
+    path_tgt: work/fasttext/train.tgt
+  valid:
+    path_src: work/fasttext/dev.src
+    path_tgt: work/fasttext/dev.tgt
+save_model: work/fasttext/model/nmt
+save_checkpoint_steps: 2000
+keep_checkpoint: 3
+seed: 42
+train_steps: 20000
+valid_steps: 2000
+warmup_steps: 4000
+report_every: 500
+early_stopping: 5
+world_size: 1
+gpu_ranks: []
+model_dtype: fp32
+decoder_type: transformer
+encoder_type: transformer
+position_encoding: true
+enc_layers: 4
+dec_layers: 4
+heads: 6
+hidden_size: 300
+word_vec_size: 300
+transformer_ff: 1200
+dropout_steps:
+- 0
+dropout:
+- 0.1
+attention_dropout:
+- 0.1
+optim: adam
+adam_beta2: 0.998
+decay_method: noam
+learning_rate: 2.0
+max_grad_norm: 0.0
+label_smoothing: 0.1
+param_init: 0.0
+param_init_glorot: true
+normalization: tokens
+batch_type: tokens
+batch_size: 4096
+valid_batch_size: 2048
+accum_count:
+- 2
+accum_steps:
+- 0
+max_generator_batches: 2
+pre_word_vecs_enc: work/fasttext/emb_src.pt
+pre_word_vecs_dec: work/fasttext/emb_tgt.pt
